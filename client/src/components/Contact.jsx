@@ -15,20 +15,104 @@ const services = [
 const contacts = [
   { icon: <FiPhone />, label: 'Call / WhatsApp', value: '+91 98765 43210' },
   { icon: <FiMail />, label: 'Email Us', value: 'info@skmassociates.in' },
-  { icon: <FiMapPin />, label: 'Our Office', value: '4th Floor, Prestige Tower, MG Road, Chennai – 600001' },
+  { icon: <FiMapPin />, label: 'Our Office', value: '4th Floor, Prestige Tower, MG Road, Chennai - 600001' },
 ];
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '', hpField: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState({ type: '', message: '' });
 
-  const handle = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
+  const handle = (e) => {
+    const { name, value } = e.target;
+    setForm((f) => ({ ...f, [name]: value }));
+  };
 
-  const handleSubmit = e => {
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const postWithTimeout = async (url, payload, timeoutMs = 10000) => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+      });
+      const json = await response.json().catch(() => ({}));
+      return { response, json };
+    } finally {
+      clearTimeout(timer);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    setForm({ name: '', email: '', phone: '', service: '', message: '' });
+
+    if (isSubmitting) return;
+
+    const webhookUrl = import.meta.env.VITE_LEAD_WEBHOOK_URL?.trim();
+    if (!webhookUrl) {
+      setStatus({ type: 'error', message: 'Lead endpoint is not configured. Please try again later.' });
+      return;
+    }
+
+    const normalized = {
+      name: form.name.trim(),
+      email: form.email.trim().toLowerCase(),
+      phone: form.phone.trim(),
+      service: form.service.trim(),
+      message: form.message.trim(),
+      hpField: form.hpField.trim(),
+    };
+
+    if (!normalized.name || !normalized.email || !normalized.phone) {
+      setStatus({ type: 'error', message: 'Please fill name, email, and phone number.' });
+      return;
+    }
+
+    if (!isValidEmail(normalized.email)) {
+      setStatus({ type: 'error', message: 'Please enter a valid email address.' });
+      return;
+    }
+
+    if (normalized.hpField) {
+      setStatus({ type: 'success', message: 'Thank you! Our team will contact you shortly.' });
+      setForm({ name: '', email: '', phone: '', service: '', message: '', hpField: '' });
+      return;
+    }
+
+    const payload = {
+      ...normalized,
+      source: 'website-contact-form',
+      pageUrl: window.location.href,
+      userAgent: navigator.userAgent,
+    };
+
+    try {
+      setIsSubmitting(true);
+      setStatus({ type: '', message: '' });
+
+      const { response, json } = await postWithTimeout(webhookUrl, payload);
+      if (!response.ok || !json.ok) {
+        throw new Error(json.error || 'Unable to submit enquiry at the moment.');
+      }
+
+      setStatus({ type: 'success', message: json.message || 'Thank you! Our team will contact you shortly.' });
+      setForm({ name: '', email: '', phone: '', service: '', message: '', hpField: '' });
+    } catch (error) {
+      const timeoutError = error?.name === 'AbortError';
+      setStatus({
+        type: 'error',
+        message: timeoutError
+          ? 'Request timed out. Please try again in a moment.'
+          : (error?.message || 'Unable to send your enquiry right now. Please try again shortly.'),
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -42,7 +126,7 @@ export default function Contact() {
           </p>
 
           <div className="contact__cards">
-            {contacts.map(c => (
+            {contacts.map((c) => (
               <div className="contact__card" key={c.label}>
                 <span className="contact__card-icon">{c.icon}</span>
                 <div>
@@ -55,7 +139,7 @@ export default function Contact() {
         </div>
 
         <div className="contact__form-wrap">
-          <form className="contact__form" onSubmit={handleSubmit}>
+          <form className="contact__form" onSubmit={handleSubmit} noValidate>
             <h3 className="contact__form-title">Send an Enquiry</h3>
 
             <div className="form-row">
@@ -78,7 +162,11 @@ export default function Contact() {
                 <label>Service Needed</label>
                 <select name="service" value={form.service} onChange={handle}>
                   <option value="">Select a service</option>
-                  {services.map(s => <option key={s} value={s}>{s}</option>)}
+                  {services.map((s) => (
+                    <option key={s} value={s}>
+                      {s}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -88,13 +176,26 @@ export default function Contact() {
               <textarea name="message" value={form.message} onChange={handle} placeholder="Tell us about your requirement..." rows={4} />
             </div>
 
-            <button type="submit" className="btn-primary contact__submit">
-              {submitted ? '✓ Enquiry Sent!' : <><FiSend size={16} /> Send Enquiry</>}
+            <div className="contact__hp" aria-hidden="true">
+              <label htmlFor="contact-company">Company</label>
+              <input
+                id="contact-company"
+                name="hpField"
+                value={form.hpField}
+                onChange={handle}
+                type="text"
+                autoComplete="off"
+                tabIndex={-1}
+              />
+            </div>
+
+            <button type="submit" className="btn-primary contact__submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending enquiry...' : <><FiSend size={16} /> Send Enquiry</>}
             </button>
 
-            {submitted && (
-              <p className="contact__success">
-                Thank you! Our team will contact you shortly.
+            {status.message && (
+              <p className={status.type === 'error' ? 'contact__status contact__status--error' : 'contact__status contact__status--success'}>
+                {status.message}
               </p>
             )}
           </form>
