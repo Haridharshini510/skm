@@ -1,0 +1,109 @@
+.how {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.how__header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.how__header .section-sub {
+  margin: 0 auto;
+}
+
+.how__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.how__step {
+  text-align: center;
+  padding: 40px 32px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  position: relative;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.how__step:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+  z-index: 1;
+}
+
+.how__step-num {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--bg-section);
+  line-height: 1;
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  pointer-events: none;
+}
+
+.how__step-icon {
+  width: 72px;
+  height: 72px;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: var(--radius-lg);
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  margin: 0 auto 20px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.how__step:hover .how__step-icon {
+  background: var(--accent);
+  transform: rotate(-4deg) scale(1.05);
+}
+
+.how__step-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.how__step-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.how__arrow {
+  position: absolute;
+  right: -28px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: var(--accent);
+  z-index: 2;
+  background: var(--white);
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 900px) {
+  .how__steps { grid-template-columns: 1fr; gap: 24px; }
+  .how__arrow { display: none; }
+  .how__step { padding: 32px 24px; }
+}
+
+@media (max-width: 640px) {
+  .how { padding: 72px 0; }
+}
