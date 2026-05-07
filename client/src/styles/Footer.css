@@ -20,14 +20,11 @@
 .footer__logo-icon {
   width: 36px;
   height: 36px;
-  background: var(--accent);
-  color: var(--white);
   border-radius: var(--radius-sm);
-  display: grid;
-  place-items: center;
+  object-fit: contain;
 }
 
-.footer__logo-skm {
+.footer__logo-smk {
   font-family: var(--font-body);
   font-size: 1.1rem;
   font-weight: 800;

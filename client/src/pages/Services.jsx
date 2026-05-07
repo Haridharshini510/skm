@@ -8,6 +8,7 @@ const services = [
     color: '#3B82F6',
     bg: '#EFF6FF',
     title: 'Registrations',
+    href: '/registrations',
     desc: 'Startup India, FSSAI, IC EGATE, IEC, PF, ESI, Professional Tax, Digital Signature, Udyam & more.',
     items: [
       'Startup India', 'FSSAI Registration', 'FSSAI License', 'ICEGATE Registration',
@@ -20,6 +21,7 @@ const services = [
     color: '#8B5CF6',
     bg: '#F5F3FF',
     title: 'Trademark',
+    href: '/trademark',
     desc: 'Trademark registration, objection, opposition, rectification, renewal, transfer & expedited filing.',
     items: [
       'Trademark Registration', 'Trademark Objection', 'Trademark Certificate',
@@ -32,6 +34,7 @@ const services = [
     color: '#22c55e',
     bg: '#F0FDF4',
     title: 'GST',
+    href: '/gst',
     desc: 'GST registration, return filing, LUT, annual returns, amendments, revocation, appeals & more.',
     items: [
       'GST Registration', 'GST Return Filing by Accountant', 'GST LUT Form',
@@ -44,6 +47,7 @@ const services = [
     color: '#F05A28',
     bg: '#FFF0EB',
     title: 'Income Tax',
+    href: '/income-tax',
     desc: 'ITR e-filing for individuals, businesses, companies, trusts, TDS returns & tax notices.',
     items: [
       'Income Tax E-Filing', 'Business Tax Filing', 'Partnership Firm / LLP ITR',
@@ -56,6 +60,7 @@ const services = [
     color: '#0D2B5E',
     bg: '#EEF3FA',
     title: 'MCA',
+    href: '/mca',
     desc: 'Company & LLP compliance, director changes, name change, office change, DIN, share transfers & more.',
     items: [
       'Company Compliance', 'LLP Compliance', 'OPC Compliance', 'Name Change – Company',
@@ -71,6 +76,7 @@ const services = [
     color: '#EC4899',
     bg: '#FDF2F8',
     title: 'Compliance',
+    href: '/compliance',
     desc: 'FSSAI renewal, PF/ESI/PT return filing, bookkeeping, CA support & proprietorship compliance.',
     items: [
       'FSSAI Renewal', 'FSSAI Return Filing', 'Business Plan', 'PF Return Filing',
@@ -83,6 +89,7 @@ const services = [
     color: '#F59E0B',
     bg: '#FFFBEB',
     title: 'Startup',
+    href: '/startup',
     desc: 'Entity formation for proprietorships, partnerships, OPC, LLP, Pvt Ltd, Section 8, trusts & more.',
     items: [
       'Proprietorship', 'Partnership', 'One Person Company', 'Limited Liability Partnership',
@@ -134,7 +141,7 @@ export default function ServicesGrid() {
               </ul>
 
               {/* CTA */}
-              <a href="#contact" className="sg-card__link" style={{ color: s.color }}>
+              <a href={s.href} className="sg-card__link" style={{ color: s.color }}>
                 Learn More <FiArrowRight size={15} />
               </a>
 

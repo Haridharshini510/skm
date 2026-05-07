@@ -3,7 +3,7 @@ import '../styles/Hero.css';
 
 const stats = [
   { icon: <FiUsers />, value: '15,000+', label: 'Satisfied Clients' },
-  { icon: <FiAward />, value: '10+', label: 'Years of Experience' },
+  { icon: <FiAward />, value: '8+', label: 'Years of Experience' },
   { icon: <FiStar />, value: '4.9★', label: 'Customer Rating' },
 ];
 

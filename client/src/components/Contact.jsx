@@ -14,7 +14,7 @@ const services = [
 
 const contacts = [
   { icon: <FiPhone />, label: 'Call / WhatsApp', value: '+91 98765 43210' },
-  { icon: <FiMail />, label: 'Email Us', value: 'info@skmassociates.in' },
+  { icon: <FiMail />, label: 'Email Us', value: 'info@smkassociates.in' },
   { icon: <FiMapPin />, label: 'Our Office', value: '4th Floor, Prestige Tower, MG Road, Chennai - 600001' },
 ];
 

@@ -12,7 +12,7 @@ const steps = [
     icon: <FiUploadCloud />,
     step: '02',
     title: 'Submit Documents',
-    desc: 'Upload your documents securely through our portal. We handle all paperwork from here.',
+    desc: 'Submit your documents. We handle all paperwork from here.',
   },
   {
     icon: <FiCheckCircle />,

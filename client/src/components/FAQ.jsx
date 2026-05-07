@@ -4,8 +4,8 @@ import '../styles/FAQ.css';
 
 const faqs = [
   {
-    q: 'What services does SKM Associates provide?',
-    a: 'SKM Associates offers a comprehensive suite of business services including company registration (Pvt Ltd, LLP, OPC), GST registration and filing, income tax returns, trademark registration, ROC compliance, and much more. We serve startups, SMEs, and large enterprises across India.',
+    q: 'What services does SMK Associates provide?',
+    a: 'SMK Associates offers a comprehensive suite of business services including company registration (Pvt Ltd, LLP, OPC), GST registration and filing, income tax returns, trademark registration, ROC compliance, and much more. We serve startups, SMEs, and large enterprises across India.',
   },
   {
     q: 'How long does company registration take?',
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: 'How can I contact your team?',
-    a: 'You can reach us through multiple channels — call or WhatsApp us at +91 98765 43210, email us at info@skmassociates.in, or fill out the contact form on this page. Our team responds within 2 business hours.',
+    a: 'You can reach us through multiple channels — call or WhatsApp us at +91 98765 43210, email us at info@smkassociates.in, or fill out the contact form on this page. Our team responds within 2 business hours.',
   },
 ];
 

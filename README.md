@@ -1,6 +1,6 @@
-# SKM Website
+# SMK Website
 
-Marketing website for SKM Associates built with React + Vite, including Contact form lead capture to Google Sheets via Google Apps Script.
+Marketing website for SMK Associates built with React + Vite, including Contact form lead capture to Google Sheets via Google Apps Script.
 
 ## Tech Stack
 

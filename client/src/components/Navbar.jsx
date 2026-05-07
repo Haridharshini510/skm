@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { FiBriefcase, FiMenu, FiX, FiPhone } from 'react-icons/fi';
+import { useState } from 'react';
+import { FiMenu, FiX, FiPhone } from 'react-icons/fi';
+import logo from '../assets/logo.png';
 import '../styles/Navbar.css';
 
 const links = [
@@ -10,16 +11,8 @@ const links = [
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const isHomePage = window.location.pathname === '/';
-  const useSolidNavbar = !isHomePage || scrolled;
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  const useSolidNavbar = true;
 
   const close = () => setOpen(false);
 
@@ -28,11 +21,7 @@ export default function Navbar() {
       <div className="container navbar__inner">
         {/* Logo */}
         <a href="/" className="navbar__logo">
-          <span className="navbar__logo-icon"><FiBriefcase size={22} /></span>
-          <span className="navbar__logo-text">
-            <span className="navbar__logo-skm">SKM</span>
-            <span className="navbar__logo-assoc"> Associates</span>
-          </span>
+          <img src={logo} alt="SMK Logo" className="navbar__logo-icon" />
         </a>
 
         {/* Desktop nav */}

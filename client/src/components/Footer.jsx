@@ -1,4 +1,5 @@
 import { FiBriefcase, FiPhone, FiMail, FiMapPin, FiFacebook, FiTwitter, FiInstagram, FiLinkedin } from 'react-icons/fi';
+import logo from '../assets/logo.png';
 import '../styles/Footer.css';
 
 const quickLinks = [
@@ -16,9 +17,9 @@ export default function Footer() {
         {/* Brand */}
         <div className="footer__brand">
           <div className="footer__logo">
-            <span className="footer__logo-icon"><FiBriefcase size={20} /></span>
+            <img src={logo} alt="SMK Logo" className="footer__logo-icon" />
             <span>
-              <span className="footer__logo-skm">SKM</span>
+              <span className="footer__logo-smk">SMK</span>
               <span className="footer__logo-assoc"> Associates</span>
             </span>
           </div>
@@ -57,7 +58,7 @@ export default function Footer() {
           <h4 className="footer__col-title">Contact Us</h4>
           <ul className="footer__contact-list">
             <li><FiPhone size={14} /><a href="tel:+919876543210">+91 98765 43210</a></li>
-            <li><FiMail size={14} /><a href="mailto:info@skmassociates.in">info@skmassociates.in</a></li>
+            <li><FiMail size={14} /><a href="mailto:info@smkassociates.in">info@smkassociates.in</a></li>
             <li><FiMapPin size={14} /><span>4th Floor, Prestige Tower,<br/>MG Road, Chennai – 600001</span></li>
           </ul>
         </div>
@@ -65,7 +66,7 @@ export default function Footer() {
 
       <div className="footer__bottom">
         <div className="container footer__bottom-inner">
-          <span>© {new Date().getFullYear()} SKM Associates. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} SMK Associates. All rights reserved.</span>
           <div className="footer__bottom-links">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>
