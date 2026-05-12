@@ -24,7 +24,7 @@ export default function Footer() {
             </span>
           </div>
           <p className="footer__tagline">
-            Simplifying compliance and business formation for entrepreneurs across India since 2014.
+            Simplifying compliance and business formation for entrepreneurs across India since 2018.
           </p>
           <div className="footer__socials">
             {[FiFacebook, FiTwitter, FiInstagram, FiLinkedin].map((Icon, i) => (
@@ -57,9 +57,9 @@ export default function Footer() {
         <div className="footer__col">
           <h4 className="footer__col-title">Contact Us</h4>
           <ul className="footer__contact-list">
-            <li><FiPhone size={14} /><a href="tel:+919876543210">+91 98765 43210</a></li>
-            <li><FiMail size={14} /><a href="mailto:info@smkassociates.in">info@smkassociates.in</a></li>
-            <li><FiMapPin size={14} /><span>4th Floor, Prestige Tower,<br/>MG Road, Chennai – 600001</span></li>
+            <li><FiPhone size={14} /><a href="tel:+919876543210">+91 82485 11982</a></li>
+            <li><FiMail size={14} /><a href="mailto:info@smkassociates.in">smkassociates18@gmail.com</a></li>
+            <li><FiMapPin size={14} /><span>34, Garden Ave, Perumal Nagar, Old Pallavaram, Chennai, Tamil Nadu 600117</span></li>
           </ul>
         </div>
       </div>

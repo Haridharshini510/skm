@@ -10,6 +10,10 @@
   --white: #FFFFFF;
   --bg-light: #F4F7FB;
   --bg-section: #EEF3FA;
+  --section-gradient:
+    radial-gradient(circle at 6% 15%, rgba(248, 95, 43, 0.12), transparent 28%),
+    radial-gradient(circle at 92% 88%, rgba(14, 47, 115, 0.12), transparent 30%),
+    var(--bg-section);
   --border: #DDE6F5;
   --muted: #6B7A99;
   --text: #111827;

@@ -1,6 +1,6 @@
 .ss-section {
   padding: 100px 0;
-  background: var(--bg-light);
+  background: var(--bg-section);
 }
 
 .ss-container {
@@ -108,12 +108,12 @@
 
 .ss-fade--left {
   left: 0;
-  background: linear-gradient(to right, var(--bg-light), transparent);
+  background: transparent;
 }
 
 .ss-fade--right {
   right: 0;
-  background: linear-gradient(to left, var(--bg-light), transparent);
+  background: transparent;
 }
 
 /* ─── Card ─── */
@@ -268,7 +268,7 @@
   .ss-card { flex: 0 0 260px; }
 }.ss-section {
   padding: 100px 0;
-  background: var(--bg-light);
+  background: var(--bg-section);
 }
 
 .ss-container {
@@ -376,12 +376,12 @@
 
 .ss-fade--left {
   left: 0;
-  background: linear-gradient(to right, var(--bg-light), transparent);
+  background: transparent;
 }
 
 .ss-fade--right {
   right: 0;
-  background: linear-gradient(to left, var(--bg-light), transparent);
+  background: transparent;
 }
 
 /* ─── Card ─── */

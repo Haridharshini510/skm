@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-mid) 55%, var(--primary-light) 100%);
+  background: var(--primary);
   padding: 140px 0 0;
   overflow: hidden;
   min-height: 100vh;
@@ -41,10 +41,7 @@
 .hero__grid {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
+  background-image: none;
 }
 
 .hero__inner {
@@ -198,8 +195,7 @@
 
 /* Stats */
 .hero__stats {
-  background: rgba(0,0,0,0.25);
-  backdrop-filter: blur(12px);
+  background: var(--primary);
   border-top: 1px solid rgba(255,255,255,0.1);
   padding: 28px 0;
 }

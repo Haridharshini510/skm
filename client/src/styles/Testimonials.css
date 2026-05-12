@@ -1,6 +1,6 @@
 .testimonials {
   padding: 100px 0;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-mid) 100%);
+  background: var(--primary);
   position: relative;
   overflow: hidden;
 }
@@ -8,10 +8,7 @@
 .testimonials__bg {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 56px 56px;
+  background-image: none;
 }
 
 .testimonials__header {

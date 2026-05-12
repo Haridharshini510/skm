@@ -134,8 +134,10 @@ export default function ServicesGrid() {
                   </li>
                 ))}
                 {s.items.length > 5 && (
-                  <li className="sg-card__more" style={{ color: s.color }}>
-                    +{s.items.length - 5} more services
+                  <li>
+                    <a href={s.href} className="sg-card__more" style={{ color: s.color }}>
+                      +{s.items.length - 5} more services
+                    </a>
                   </li>
                 )}
               </ul>

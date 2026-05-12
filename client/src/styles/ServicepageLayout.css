@@ -3,8 +3,12 @@
 ───────────────────────────────────────── */
 
 /* Hero */
+.spl {
+  background: var(--bg-section);
+}
+
 .spl__hero {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-mid) 60%, var(--primary-light) 100%);
+  background: var(--primary);
   padding: 120px 0 72px;
   position: relative;
   overflow: hidden;
@@ -13,10 +17,7 @@
 .spl__hero-grid {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
+  background-image: none;
   pointer-events: none;
 }
 
@@ -411,7 +412,7 @@
 
 /* ── Bottom CTA banner ── */
 .spl__cta-banner {
-  background: linear-gradient(135deg, var(--cat-color) 0%, color-mix(in srgb, var(--cat-color) 70%, var(--primary)) 100%);
+  background: var(--cat-color);
   padding: 56px 0;
   margin-top: 0;
 }

@@ -13,9 +13,9 @@ const services = [
 ];
 
 const contacts = [
-  { icon: <FiPhone />, label: 'Call / WhatsApp', value: '+91 98765 43210' },
-  { icon: <FiMail />, label: 'Email Us', value: 'info@smkassociates.in' },
-  { icon: <FiMapPin />, label: 'Our Office', value: '4th Floor, Prestige Tower, MG Road, Chennai - 600001' },
+  { icon: <FiPhone />, label: 'Call / WhatsApp', value: '+91 82485 11982' },
+  { icon: <FiMail />, label: 'Email Us', value: 'smkassociates18@gmail.com' },
+  { icon: <FiMapPin />, label: 'Our Office', value: '34, Garden Ave, Perumal Nagar, Old Pallavaram, Chennai, Tamil Nadu 600117' },
 ];
 
 export default function Contact() {

@@ -22,6 +22,10 @@ export default function Navbar() {
         {/* Logo */}
         <a href="/" className="navbar__logo">
           <img src={logo} alt="SMK Logo" className="navbar__logo-icon" />
+          <span className="navbar__brand">
+            <span className="navbar__brand-main">SKM</span>
+            <span className="navbar__brand-sub">ASSOCIATES</span>
+          </span>
         </a>
 
         {/* Desktop nav */}
