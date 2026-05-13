@@ -48,12 +48,14 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div className={`navbar__mobile ${open ? 'navbar__mobile--open' : ''}`}>
-        {links.map(l => (
-          <a key={l.label} href={l.href} className="navbar__mobile-link" onClick={close}>{l.label}</a>
-        ))}
-        <a href="tel:+919876543210" className="navbar__mobile-cta btn-primary">
-          <FiPhone size={15} /> Call Us Now
-        </a>
+        <div className="container navbar__mobile-inner">
+          {links.map(l => (
+            <a key={l.label} href={l.href} className="navbar__mobile-link" onClick={close}>{l.label}</a>
+          ))}
+          <a href="tel:+919876543210" className="navbar__mobile-cta btn-primary">
+            <FiPhone size={15} /> Call Us Now
+          </a>
+        </div>
       </div>
     </header>
   );

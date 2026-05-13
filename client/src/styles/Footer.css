@@ -10,6 +10,11 @@
   padding: 72px 0 56px;
 }
 
+.footer .container {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
 .footer__logo {
   display: flex;
   align-items: center;
@@ -155,4 +160,11 @@
   .footer__top { grid-template-columns: 1fr; gap: 32px; }
   .footer__brand { grid-column: auto; }
   .footer__bottom-inner { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 768px) {
+  .footer .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
